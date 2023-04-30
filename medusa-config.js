@@ -36,13 +36,23 @@ const plugins = [
   `medusa-fulfillment-manual`,
   `medusa-payment-manual`,
   // To enable the admin plugin, uncomment the following lines and run `yarn add @medusajs/admin`
-  // {
-  //   resolve: "@medusajs/admin",
-  //   /** @type {import('@medusajs/admin').PluginOptions} */
-  //   options: {
-  //     autoRebuild: true,
-  //   },
-  // },
+  {
+    resolve: "@medusajs/admin",
+    /** @type {import('@medusajs/admin').PluginOptions} */
+    options: {
+      autoRebuild: true,
+    },
+  },
+  {
+    resolve: `medusa-file-spaces`,
+    options: {
+        spaces_url: process.env.SPACE_URL,
+        bucket: process.env.SPACE_BUCKET,
+        endpoint: process.env.SPACE_ENDPOINT,
+        access_key_id: process.env.SPACE_ACCESS_KEY_ID,
+        secret_access_key: process.env.SPACE_SECRET_ACCESS_KEY,
+    },
+  },
 ];
 
 const modules = {
